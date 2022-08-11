@@ -52,7 +52,7 @@ def recovery_stamina(stamina,user):
     else:
         print("恢复失败，请重试！")
 
-def calc_mojo(lengthx):
+def calc_mojo(lengthx,is_vip):
     """
     计算应该发放的mojo数量
     int_num:mojo数量
@@ -74,7 +74,10 @@ def calc_mojo(lengthx):
             flag_num = int(a[1])
         if flag_num >= 5:
             int_num += 1
-    return int_num
+    if is_vip:
+        return int_num * 2
+    else:
+        return int_num
 
     
 def calc_mojo_reward_count(length,stamina_balance):

@@ -15,13 +15,13 @@ data = {
 # }
 headers = {"user-agent":"bayAgent/1.1 Android/12 com.mojohi.reading/1.1.502-qa shanbay-channel/0 vivo/V2118A frontend/4.8 api/2.2 device/Mobile",
            "Content-Type":"application/json; charset=UTF-8",
-           "cookie":"auth_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6OTcsImV4cCI6MTY2MDMwMDcyNywiZXhwX3YyIjoxNjYwMzAwNzI3LCJkZXZpY2UiOiIiLCJ1c2VybmFtZSI6Ikdvb2dsZV85Yzk3OTVjNThlNjQ1NTZmIiwiaXNfc3RhZmYiOjAsInNlc3Npb25faWQiOiI5Nzc0Y2Y1MjEyNGUxMWVkOGJkNzRlODEyNTA3YTI2OCJ9.9RULGAB5cF43UUfRrCZTokxSv4TbtQ_p9srU0RMJOtg; csrftoken=e3a79536b8ef42a85bf5bef3a7a2d3cb"
+           "cookie":"auth_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6OTcsImV4cCI6MTY2MTA3MjY0NCwiZXhwX3YyIjoxNjYxMDcyNjQ0LCJkZXZpY2UiOiIiLCJ1c2VybmFtZSI6Ikdvb2dsZV85Yzk3OTVjNThlNjQ1NTZmIiwiaXNfc3RhZmYiOjAsInNlc3Npb25faWQiOiI5Nzc0Y2Y1MjEyNGUxMWVkOGJkNzRlODEyNTA3YTI2OCJ9.ETeQ-WjY82hkuxLSqZYNu2Cs7ShQL9ytZLRCpynTXYU; csrftoken=f40d5abf0e431c718aff1fec686caa67"
 }
-mojo_balance = 844
+mojo_balance = 876
 stamina_balance = 2000   # 初始化耐力值
-i = 20
+i = 24
 for catelog_id in catelog_ids:
-    if catelog_id in('hnjxn', 'qgbvg', 'bskjqa', 'xxasi', 'ebnhz', 'uvpax', 'bvfmee', 'osons', 'bainku', 'phufp', 'feuvq', 'cavla', 'bkptss', 'mmeqe', 'jtzjg', 'speyu', 'buqzml', 'zcdpc', 'bszvz', 'bqzxbg'):
+    if catelog_id in('hnjxn', 'qgbvg', 'bskjqa', 'xxasi', 'ebnhz', 'uvpax', 'bvfmee', 'osons', 'bainku', 'phufp', 'feuvq', 'cavla', 'bkptss', 'mmeqe', 'jtzjg', 'speyu', 'buqzml', 'zcdpc', 'bszvz', 'bqzxbg','piyse','ffxxc','cbydu','bkwwol'):
         continue
     url = f"https://api.mojohi.com/mojoread/user/articles/{catelog_id}"
     response = requests.post(url,json=data,headers=headers,timeout = 20)
@@ -52,6 +52,6 @@ for catelog_id in catelog_ids:
 print("棒～整本书📖都完成✅阅读啦～～")
 
 
-
+# 每次运行需要检查用户ID，初始mojo数量，耐力值的初始化，起始章节，要阅读的书籍ID
 
     
