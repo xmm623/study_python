@@ -80,7 +80,7 @@ def calc_mojo(lengthx,is_vip):
         return int_num
 
     
-def calc_mojo_reward_count(length,stamina_balance):
+def calc_mojo_reward_count(length,stamina_balance,is_vip):
     """
     判断应该走的mojo计算逻辑
     """
@@ -88,7 +88,7 @@ def calc_mojo_reward_count(length,stamina_balance):
         pass
     else: # 如果耐力值小于章节词数
         length = stamina_balance   # 此时mojo计算就要以剩余的耐力值作为章节长度了，因为最多可以消耗的就是剩余耐力值了，当章节词数大于剩余耐力值时
-    return calc_mojo(length)
+    return calc_mojo(length,is_vip)
 
 
 def calc_stamina_balance(length,stamina_balance):

@@ -20,19 +20,20 @@ headers = {"user-agent":"bayAgent/1.1 Android/12 com.mojohi.reading/1.1.502-qa s
 mojo_balance = 876
 stamina_balance = 2000   # 初始化耐力值
 i = 24
+is_vip = True
 for catelog_id in catelog_ids:
     if catelog_id in('hnjxn', 'qgbvg', 'bskjqa', 'xxasi', 'ebnhz', 'uvpax', 'bvfmee', 'osons', 'bainku', 'phufp', 'feuvq', 'cavla', 'bkptss', 'mmeqe', 'jtzjg', 'speyu', 'buqzml', 'zcdpc', 'bszvz', 'bqzxbg','piyse','ffxxc','cbydu','bkwwol'):
         continue
     url = f"https://api.mojohi.com/mojoread/user/articles/{catelog_id}"
     response = requests.post(url,json=data,headers=headers,timeout = 20)
     length = catelog_lengths[i]
-    mojo_reward_count = basic_functions.calc_mojo_reward_count(length,stamina_balance)
+    mojo_reward_count = basic_functions.calc_mojo_reward_count(length,stamina_balance,is_vip)
     mojo_balance = mojo_balance + mojo_reward_count
     stamian_consume_count = basic_functions.calc_stamina_consume_count(length,stamina_balance)
     stamina_balance = basic_functions.calc_stamina_balance(length,stamina_balance)
     assert response.status_code == 200,response.status_code
     print("状态码正常")
-    print(f"我计算的应发放的mojo数量为{mojo_reward_count}")
+    print(f"我计算的应发放的mojo数量为{mojo_reward_count} 章节字数为{length}")
     assert response.json()["mojo_reward_count"] == mojo_reward_count,response.json()["mojo_reward_count"]
     print("mojo发放数量正确")
     print(f"我计算的mojo累计数量为{mojo_balance}")
