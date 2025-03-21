@@ -1,12 +1,12 @@
 import requests
 import json
 
-from requests.adapters import HTTPAdapter
+# from requests.adapters import HTTPAdapter
 
-# 超时重连机制
-s = requests.session()
-s.mount('https://',HTTPAdapter(max_retries=5))
-url = "https://api.mojohi.com/mojoread/books/ikgix/catalogs"
+# # 超时重连机制
+# s = requests.session()
+# s.mount('https://',HTTPAdapter(max_retries=5))
+# url = "https://api.mojohi.com/mojoread/books/ikgix/catalogs"
 
 
 def get_book_catelogs_information(book_id):
@@ -19,7 +19,7 @@ def get_book_catelogs_information(book_id):
            "Content-Type":"application/json; charset=UTF-8",
            "cookie":"auth_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6OTcsImV4cCI6MTY2MDMwMDcyNywiZXhwX3YyIjoxNjYwMzAwNzI3LCJkZXZpY2UiOiIiLCJ1c2VybmFtZSI6Ikdvb2dsZV85Yzk3OTVjNThlNjQ1NTZmIiwiaXNfc3RhZmYiOjAsInNlc3Npb25faWQiOiI5Nzc0Y2Y1MjEyNGUxMWVkOGJkNzRlODEyNTA3YTI2OCJ9.9RULGAB5cF43UUfRrCZTokxSv4TbtQ_p9srU0RMJOtg; csrftoken=e3a79536b8ef42a85bf5bef3a7a2d3cb"
 }
-    response = requests.get(url, headers=headers,timeout = 20)
+    response = requests.get(url, headers=headers)
     response_json = response.json()
     catelog_num = len(response_json["objects"])  # 章节数
     catelog_ids = []
@@ -40,17 +40,32 @@ def recovery_stamina(stamina,user):
     url = "https://api.mojohi.com/mojoread/admin/user_stamina"
     headers = {"user-agent":"bayAgent/1.1 Android/12 com.mojohi.reading/1.1.502-qa shanbay-channel/0 vivo/V2118A frontend/4.8 api/2.2 device/Mobile",
            "Content-Type":"application/json; charset=UTF-8",
-           "cookie":"auth_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MjAsImV4cCI6MTY2MDE5NTg4NSwiZXhwX3YyIjoxNjYwMTk1ODg1LCJkZXZpY2UiOiIiLCJ1c2VybmFtZSI6Ikdvb2dsZV85OWViNzM3ZTViMmIzNWNjIiwiaXNfc3RhZmYiOjAsInNlc3Npb25faWQiOiI3Yzc0ODFlYzExNWExMWVkYTYwZjBhYTA1NjVmMTE4NyJ9.x62nmWwwqQzGgTlBavyrTPqHwl4_6FPforTiQiakUvU; csrftoken=0b843bd169ca20ff1cb8881afe152ceb"
+           "cookie":"auth_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MjAsImV4cCI6MTY2MTA3NTk3OSwiZXhwX3YyIjoxNjYxMDc1OTc5LCJkZXZpY2UiOiIiLCJ1c2VybmFtZSI6Ikdvb2dsZV85OWViNzM3ZTViMmIzNWNjIiwiaXNfc3RhZmYiOjAsInNlc3Npb25faWQiOiI5ZGExNTgxZTE5NWIxMWVkOTI3NDRlODEyNTA3YTI2OCJ9.jp1XUGCCrw4K6O7UPKDemqWh7oy32XlMs1u7WM3wcQ0; csrftoken=8e8aa8d6b678a2ea10b83ec8c86983e5"
 }
     data = {
           "stamina_balance":stamina,
           "user_id":user
           }
-    response = requests.put(url,json=data,headers=headers,timeout = 20)
-    if response.status_code == 200:
-        print("恢复耐力值成功")
-    else:
-        print("恢复失败，请重试！")
+    
+    try:
+        response = requests.put(url,json=data,headers=headers)
+        i = 0
+        if response.status_code == 200:
+            print("恢复耐力值成功")
+            i = 3
+    except requests.exceptions.RequestException as e:
+        while i < 3:
+            print(f"报错信息:{e}")
+            i += 1
+            print("请求失败，正在进行第！" + str(i) + "次请求")
+            response = requests.put(url,json=data,headers=headers)
+            if response.status_code == 200:
+                print(f"第{i}次重试成功，耐力值成功恢复！")
+                i = 3
+
+
+
+    
 
 def calc_mojo(lengthx,is_vip):
     """
