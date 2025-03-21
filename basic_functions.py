@@ -65,8 +65,11 @@ def recovery_stamina(stamina,user):
 
 
 
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> b1bfdd8ad5898bcc8853559febf439fbf92cf01f
 def calc_mojo(lengthx,is_vip):
     """
     计算应该发放的mojo数量
