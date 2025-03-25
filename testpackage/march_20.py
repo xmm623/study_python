@@ -56,3 +56,4 @@ print("hehe")
 #将可迭代对象中的元素用指定的字符串连接成一个新的字符串
 k=["hellow","xiaoyu","my","name","is"]
 print(" ".join(k))
+hahah
