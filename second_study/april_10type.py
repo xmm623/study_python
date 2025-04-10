@@ -1,83 +1,83 @@
-# # 数据类型转换
-# a = 1
-# b = 2.6
-# c = "3"
-# d = 0
-# e = ""
-# # 整数转浮点数
-# float_a = float(a)
-# print("type:", type(float_a), "value:", float_a)
-# # 浮点数转整数，直接截断小数点
-# int_b = int(b)
-# print("type:", type(int_b), "value:", int_b)
-# # 字符串转整数
-# int_c = int(c)
-# print("type:", type(int_c), "value:", int_c)
-# # 字符串转浮点数
-# float_c = float(c)
-# print("type:", type(float_c), "value:", float_c)
-# # 整数转字符串
-# str_a = str(a)
-# print("type:", type(str_a), "value:", str_a)
-# # 浮点数转字符串
-# str_b = str(b)
-# print("type:", type(str_b), "value:", str_b)
-# # 字符串转布尔值
-# bool_c = bool(c)
-# print("type:", type(bool_c), "value:", bool_c)
-# bool_e = bool(e)
-# print("type:", type(bool_e), "value:", bool_e)
-# # 整数转布尔值
-# bool_a = bool(a)
-# print("type:", type(bool_a), "value:", bool_a)
-# bool_d = bool(d)
-# print("type:", type(bool_d), "value:", bool_d)
-# # 浮点数转布尔值
-# bool_b = bool(b)
-# print("type:", type(bool_b), "value:", bool_b)
+# 数据类型转换
+a = 1
+b = 2.6
+c = "3"
+d = 0
+e = ""
+# 整数转浮点数
+float_a = float(a)
+print("type:", type(float_a), "value:", float_a)
+# 浮点数转整数，直接截断小数点
+int_b = int(b)
+print("type:", type(int_b), "value:", int_b)
+# 字符串转整数
+int_c = int(c)
+print("type:", type(int_c), "value:", int_c)
+# 字符串转浮点数
+float_c = float(c)
+print("type:", type(float_c), "value:", float_c)
+# 整数转字符串
+str_a = str(a)
+print("type:", type(str_a), "value:", str_a)
+# 浮点数转字符串
+str_b = str(b)
+print("type:", type(str_b), "value:", str_b)
+# 字符串转布尔值
+bool_c = bool(c)
+print("type:", type(bool_c), "value:", bool_c)
+bool_e = bool(e)
+print("type:", type(bool_e), "value:", bool_e)
+# 整数转布尔值
+bool_a = bool(a)
+print("type:", type(bool_a), "value:", bool_a)
+bool_d = bool(d)
+print("type:", type(bool_d), "value:", bool_d)
+# 浮点数转布尔值
+bool_b = bool(b)
+print("type:", type(bool_b), "value:", bool_b)
 
-# # 字符串string/元组tuple/列表list/集合set之间相互转换
-# # 字符串转元组
-# str_to_tuple = tuple("hello")
-# print("type:", type(str_to_tuple), "value:", str_to_tuple)
-# # 字符串转列表
-# str_to_list = list("hello")
-# print("type:", type(str_to_list), "value:", str_to_list)
-# # 字符串转集合
-# str_to_set = set("hello")
-# print("type:", type(str_to_set), "value:", str_to_set)
-# # 元组转字符串
-# tuple_to_str = "".join(('h','e','l','l','o'))
-# print("type:", type(tuple_to_str), "value:", tuple_to_str)
-# # 列表转字符串
-# list_to_str = "".join(['h','e','l','l','o'])
-# print("type:", type(list_to_str), "value:", list_to_str)
-# # 集合转字符串 没必要很少用到
-# set_to_str = "".join(sorted(set("hello")))
-# print("type:", type(set_to_str), "value:", set_to_str)
-# # 元组转列表
-# tuple_to_list = list(('h','e','l','l','o'))
-# print("type:", type(tuple_to_list), "value:", tuple_to_list)
-# # 列表转元组
-# list_to_tuple = tuple(['h','e','l','l','o'])
-# print("type:", type(list_to_tuple), "value:", list_to_tuple)
-# # 集合转列表
-# set_to_list = list(set("hello"))
-# print("type:", type(set_to_list), "value:", set_to_list)
-# # 元组转集合
-# tuple_to_set = set(('h','e','l','l','o'))
-# print("type:", type(tuple_to_set), "value:", tuple_to_set)
-# # 列表转集合
-# list_to_set = set(['h','e','l','l','o'])
-# print("type:", type(list_to_set), "value:", list_to_set)
-# # 集合转元组
-# set_to_tuple = tuple(set("hello"))
-# print("type:", type(set_to_tuple), "value:", set_to_tuple)
+# 字符串string/元组tuple/列表list/集合set之间相互转换
+# 字符串转元组
+str_to_tuple = tuple("hello")
+print("type:", type(str_to_tuple), "value:", str_to_tuple)
+# 字符串转列表
+str_to_list = list("hello")
+print("type:", type(str_to_list), "value:", str_to_list)
+# 字符串转集合
+str_to_set = set("hello")
+print("type:", type(str_to_set), "value:", str_to_set)
+# 元组转字符串
+tuple_to_str = "".join(('h','e','l','l','o'))
+print("type:", type(tuple_to_str), "value:", tuple_to_str)
+# 列表转字符串
+list_to_str = "".join(['h','e','l','l','o'])
+print("type:", type(list_to_str), "value:", list_to_str)
+# 集合转字符串 没必要很少用到
+set_to_str = "".join(sorted(set("hello")))
+print("type:", type(set_to_str), "value:", set_to_str)
+# 元组转列表
+tuple_to_list = list(('h','e','l','l','o'))
+print("type:", type(tuple_to_list), "value:", tuple_to_list)
+# 列表转元组
+list_to_tuple = tuple(['h','e','l','l','o'])
+print("type:", type(list_to_tuple), "value:", list_to_tuple)
+# 集合转列表
+set_to_list = list(set("hello"))
+print("type:", type(set_to_list), "value:", set_to_list)
+# 元组转集合
+tuple_to_set = set(('h','e','l','l','o'))
+print("type:", type(tuple_to_set), "value:", tuple_to_set)
+# 列表转集合
+list_to_set = set(['h','e','l','l','o'])
+print("type:", type(list_to_set), "value:", list_to_set)
+# 集合转元组
+set_to_tuple = tuple(set("hello"))
+print("type:", type(set_to_tuple), "value:", set_to_tuple)
 
-# # 特殊类型转换
-# # None转布尔值
-# none_to_bool = bool(None)
-# print("type:", type(none_to_bool), "value:", none_to_bool)
+# 特殊类型转换
+# None转布尔值
+none_to_bool = bool(None)
+print("type:", type(none_to_bool), "value:", none_to_bool)
 # eval函数：解析并执行传入的字符串表达式，返回表达式的计算结果
 string1 = "1"
 string2 = "2.6"
