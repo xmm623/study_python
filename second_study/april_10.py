@@ -73,6 +73,9 @@ print("is 运算结果：", is_result)
 # is not 运算符：用于判断两个变量是否引用自不同的对象（内存地址不同）
 is_not_result = (e is not f)
 print("is not 运算结果：", is_not_result)
+# is和==的区别：
+# is 判断的是对象的身份（内存地址），而 == 判断的是对象的值是否相等。
+print(id(c), id(d), id(e), id(f))
 
 # 5.成员运算
 # in 运算符：用于判断一个元素是否在序列（如字符串、列表、元组）或集合中
