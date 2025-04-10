@@ -27,7 +27,7 @@ print(person3["address"]["city"])
 # 使用get()方法访问字典中的值
 print(person.get("age"))
 print(person.get("country", "Not Found"))  # 如果键不存在，返回默认值
-
+giit
 # 通过键来添加或修改字典中的值
 person["age"] = 31 #键存在则是修改
 person["country"] = "USA" #键不存在则是添加
