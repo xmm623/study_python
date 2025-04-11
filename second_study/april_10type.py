@@ -81,7 +81,7 @@ print("type:", type(none_to_bool), "value:", none_to_bool)
 # eval函数：解析并执行传入的字符串表达式，返回表达式的计算结果
 string1 = "1"
 string2 = "2.6"
-string3 = "1 + 1"
+string3 = "1 + 2"
 string4 = "None"
 string5 = "False"
 string6 = "{'abc':123,'222':222}"
