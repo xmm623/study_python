@@ -12,7 +12,7 @@ print("减法结果：", sub_result)
 mul_result = a*b
 print("乘法结果：", mul_result)
 # 除法
-div_result = a/b 
+div_result = a/b #得到的结果是小数
 print("除法结果：", div_result)
 # 整除（向下取整）
 floor_div_result = a//b
