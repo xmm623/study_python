@@ -10,3 +10,4 @@ print("wxy")
 a=123
 print(f"hahahah{a}")
 print("nb",a)
+print("test_if_or_no")
