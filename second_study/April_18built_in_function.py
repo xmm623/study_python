@@ -52,7 +52,7 @@ for i in range(2,10):
 # enumerate(可迭代对象):遍历可迭代对象时，同时返回索引和值
 for index,value in enumerate([2,3,"22","sd",999]):
     print(index,value)
-# zip(*可迭代对象)：将多个可迭代对象中对应的元素打包成一个个元组，然后返回由这些元组组成的迭代器，这个迭代器会生成元组
+# zip(*可迭代对象)：将多个可迭代对象中对应位置的元素打包成一个个元组，然后返回由这些元组组成的迭代器，这个迭代器会生成元组
 g = ["alice","bob","sam"]
 h = ["men","woman","man"]
 zipped = zip(g,h)
