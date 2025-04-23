@@ -48,12 +48,14 @@ user = build_profile(name="小明", age=12, city="北京")
 print(user)  # {'name': '小明', 'age': 12, 'city': '北京'}
 
 # 变量的作用域
-# 1.局部变量
+# 1.局部变量：在函数内部定义的变量，只能在函数内部使用
 def jubu():
     x=1 # x是局部变量（在函数内定义的变量）
     print(x)
 jubu()
-# 2.全局变量(在函数外部定义的变量)
+# print(x) # NameError: name 'x' is not defined 报错，因为x是局部变量，只能在函数内部使用
+
+# 2.全局变量：在函数外部定义的变量，可以在函数内部和外部使用
 x=20
 def quanju():
     print(x)
