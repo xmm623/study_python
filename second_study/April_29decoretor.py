@@ -5,7 +5,7 @@ def decorator(func): # 装饰器函数
         print("Before function call")
         func()
         print("After function call")
-    return wrapper
+    # return wrapper
 @decorator #装饰器语法糖，等价于 my_function = decorator(my_function)
 def my_function():  # 这是被装饰的函数
     print("This is the original function.")
