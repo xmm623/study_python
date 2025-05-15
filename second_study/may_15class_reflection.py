@@ -20,7 +20,7 @@
 type(obj)	                     获取对象类型	                 type(42) → <class 'int'>
 isinstance(obj, cls)	         检查对象类型	                 isinstance([], list) → True
 issubclass(sub, parent)	         检查类继承关系	                  issubclass(bool, int) → True
-hasattr(obj, 'attr')	         检查属性是否存在	              hasattr(str, 'split') → True
+hasattr(obj, 'attr')	         检查属性是否存在,attr是一个字符串	              hasattr(str, 'split') → True
 getattr(obj, 'attr'[, default])	 获取属性值	                     getattr([], 'append') → 方法对象
 setattr(obj, 'attr', value)	     设置属性值	                      setattr(obj, 'x', 10)
 dir(obj)	                     获取对象所有属性和方法	            dir(str) 查看字符串方法列表
