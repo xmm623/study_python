@@ -6,4 +6,10 @@ print(f"当前工作目录:{os.getcwd()}")
 # 创建目录
 # os.mkdir("new_dir")
 # 删除目录
-os.rmdir("new_dir")
+# os.rmdir("new_dir")
+
+# 统计CPU的核心数
+print(f"此电脑的CPU核心数：{os.cpu_count()}")
+
+#执行CMD命令
+os.system("which python")
