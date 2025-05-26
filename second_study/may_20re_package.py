@@ -28,7 +28,7 @@ $ 匹配字符串的结尾
 # match对象：match对象包含了匹配的文本，匹配的位置等。
 # 如何使用match对象：
 # 1. group（index）：如果index是0或不传，返回整个正则表达式匹配到的完整字符串。如果index>0，返回第index个捕获组匹配到的字符串，索引从1开始
-# 2.groups（）：返回分组匹配到的内容，从group(1)开始，如果没有分组，则返回空元组。只返回正则表达式匹配到的字符串，不返回完整字符串。
+# 2.groups（）：返回分组匹配到的内容，从group(1)开始，如果没有分组，则返回空元组。另外，此方法只返回正则表达式匹配到的字符串，不返回完整字符串。
 import re
 pattern1 = r"\d+"
 text1 = "12348888abc456def_789ggg"
@@ -70,6 +70,7 @@ if result3:
     print(f"匹配到的完整字符串:{result3.group(0)}")
     print(f"匹配到的第一个组:{result3.group(1)}")
     print(f"匹配到的第二个组:{result3.group(2)}")
+    print(f"匹配到的所有组：{result3.groups()}")
     print(f"匹配的起始位置：{result3.start()}")
     print(f"匹配的结束位置：{result3.end()}")
     print(f"匹配的起始和结束位置：{result3.span()}") 
@@ -94,8 +95,34 @@ else:
 # end()：返回匹配的结束位置
 # span()：返回匹配的起始和结束位置
 # string():获取原始匹配的字符串
-text2 = "ab233def34_8999"
 
+
+
+# 分组命名：在标准的捕获组中，我们通过数字索引（如 group(1)、group(2)）来引用捕获到的内容。当正则表达式变得复杂，或者有大量的捕获组时，仅仅依靠数字索引会变得非常难以阅读和维护，因为你很难记住 group(3) 到底代表什么。
+# 为了解决这个问题，正则表达式引入了命名捕获组。它允许你为捕获组指定一个有意义的名称，然后通过这个名称来引用捕获到的内容。
+# 命名捕获组的语法是在常规捕获组的左括号 ( 后面加上 ?P<name>，其中 name 是你为该组定义的名称。
+# (?P<name>...) ...: 这是你希望捕获的正则表达式模式。
+
+
+text2 = "Name: Bob, Age: 25"
+pattern_named = r"Name: (?P<person_name>\w+), Age: (?P<person_age>\d+)"
+
+match_named = re.search(pattern_named, text2)
+
+if match_named:
+    # 直接通过名称访问，代码更清晰
+    name = match_named.group("person_name")
+    age = match_named.group("person_age")
+    print(f"命名捕获 - 名字: {name}, 年龄: {age}")
+
+    # 当然，你仍然可以通过索引访问 (索引顺序按从左到右的括号出现顺序)
+    print(f"命名捕获 - 索引访问 名字: {match_named.group(1)}, 年龄: {match_named.group(2)}")
+
+    # 命名捕获组也可以在 groups() 方法中出现
+    print(f"所有捕获组 (包括命名): {match_named.groups()}")
+
+    # 获取命名捕获组的字典
+    print(f"命名捕获组字典: {match_named.groupdict()}")
 
 """
 总结
