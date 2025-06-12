@@ -27,7 +27,7 @@ response_sbay = requests.get(url_shanbay_bookdetails, headers=headers)
 url_shanbay_bookcatalogs = "https://apiv3.shanbay.com/reading/books/aedui/catalogs"
 params = {
     "list_all": 1
-} # 请求参数
+} # 请求参数，get请求用params传递
 response_sbay_catalogs = requests.get(url_shanbay_bookcatalogs, headers=headers, params=params)
 # print(response_sbay_catalogs.json())  # 打印响应的 JSON 数据
 print(response_sbay_catalogs.status_code)  # 打印响应状态码

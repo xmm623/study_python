@@ -18,7 +18,7 @@ data = {
 	"business_id": 2,
 	"article_id": "jzypx",
 	"paragraph_id": "A207565P1217735"
-}
+} # 请求体数据，post请求用json传递
 response_add_book = requests.post(url_sby_add_book, json=data, headers=headers)
 if response_add_book.status_code == 200:
     print("书籍添加成功:", response_add_book.json())
