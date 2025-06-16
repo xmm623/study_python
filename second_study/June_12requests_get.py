@@ -21,7 +21,10 @@ headers = {
     "Authorization": "Bearer auth_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIwMDIzNjE5LCJleHAiOjE3NTc0MTE1OTYsImV4cF92MiI6MTc1NzQxMTU5NiwiZGV2aWNlIjoiIiwidXNlcm5hbWUiOiJyZWFkdGVzdDE5IiwiaXNfc3RhZmYiOjAsInNlc3Npb25faWQiOiJlNWYzYjM3YzQ2YTkxMWYwYTQwMjY2YWFiNDBlYjJiMiJ9.pZ9S64HB1n7u8Q9apYWGvoM7OBNP-zGZPCwSHg4EALc"
 
 } # 自定义请求头
-response_sbay = requests.get(url_shanbay_bookdetails, headers=headers)
+try:
+    response_sbay = requests.get(url_shanbay_bookdetails, headers=headers,timeout=(1,1)) # timeout参数用于控制请求的最大等待时间，两个参数，分别是连接超时和读取超时，读取超时可以省略。如果请求超时，会抛出Timeout异常
+except requests.exceptions.Timeout as e:
+    print(f"请求超时，错误信息：{e}")
 #  # 打印响应状态码
 
 url_shanbay_bookcatalogs = "https://apiv3.shanbay.com/reading/books/aedui/catalogs"
@@ -35,3 +38,4 @@ print(response_sbay_catalogs.elapsed.total_seconds()) # 打印响应耗时
 # 分解说明：elapsed：获取请求耗时的时间差对象；total_seconds()：转换为秒数
 book_catalogs = response_sbay_catalogs.json()
 print(book_catalogs['catalogs'][0]["title_cn"])  # 打印目录中第一章的标题
+# 请求头中data和json的区别：当接口需要表单格式（form-data）（application/x-www-form-urlencoded）时，使用data；当接口需要JSON格式时，使用json
