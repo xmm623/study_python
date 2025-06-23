@@ -46,7 +46,7 @@ def test_addition(calculator_instance,module_setup_teardown):
 def test_subtraction(module_setup_teardown):
     pass
 
-@pytest.mark.usefixtures("module_setup_teardown") # 这个装饰器的作用是让指定的 fixture （括号中的fixture就是指定的）在测试类或测试函数执行前自动运行，但不会把 fixture 的返回值（yield 的值）传递给测试方法。
+@pytest.mark.usefixtures("module_setup_teardown") # 这个装饰器的作用是让指定的 fixture （括号中的fixture就是指定的）在测试类或测试函数执行前自动运行，但不会把 fixture 的返回值（yield 的值）传递给测试方法。另外，这个测试标记是多余的，因为高作用域（如 module 或 session）的 fixture 只要在它的作用域内被任何一个测试请求（无论是通过参数还是 usefixtures），它就会对整个作用域生效。
 class TestCalculatorWithFixtures:
 
     @pytest.fixture(scope='class')
