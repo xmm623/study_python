@@ -36,7 +36,7 @@ def calculator_instance():
     # 它是实现 Setup/Teardown 的利器：当 yield 只用一次时，它之前的代码是 Setup，之后的代码是 Teardown，非常适合资源管理，这也是它在 pytest fixtures 和上下文管理器中的核心用法。
     print("\n-[Fixture-Function]清理Calculator实例-")
 
-def test_addition(calculator_instance,module_setup_teardown):
+def test_addition(calculator_instance,module_setup_teardown): # 就算模块级的名字放在后面，也是模块级的装饰器先调用
     """
     测试函数讲fixture名称作为参数
     pytest会自动查找并执行这些fixture

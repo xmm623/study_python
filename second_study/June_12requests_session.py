@@ -3,7 +3,7 @@
 
 import requests
 from jsonpath import jsonpath as jp
-session = requests.Session()
+session = requests.Session() # 创建一个session对象，可以自动处理服务器返回的cookie并在后续的请求中发送
 session.headers.update({
     "Authorazation": "Bearer auth_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUwOTkxMTgwLCJleHAiOjE3NTc0OTYzNDgsImV4cF92MiI6MTc1NzQ5NjM0OCwiZGV2aWNlIjoiIiwidXNlcm5hbWUiOiJhdXRvdGVzdDMiLCJpc19zdGFmZiI6MCwic2Vzc2lvbl9pZCI6IjNhMTEwYTcwNDc2ZjExZjA4YWM2YjY5MTQ5Y2EwMjg0In0.BS8VNqgsK7dQHedMUhcvWsg3jSzRA_YeJOV28lcFy2E"
 }) # 创建session并设置全局头
