@@ -1,0 +1,34 @@
+# YAML（YAML Ain't Markup Language）是一种人类可读的数据序列化格式，常用于配置文件、数据交换和测试数据定义。它的设计目标是简洁、易读，同时支持复杂的数据结构。
+# 注意事项
+# 内容使用空格缩进，不可以使用tab
+# 相同缩进的元素属于同一层级
+# 推荐使用两个空格缩进
+# 表达字符串的引号可写可不写
+
+# 列表，使用- 加 空格表示列表项
+fruits: # 列表名
+  - Apple
+  - Banana
+  - Orange
+  - Strawberry
+
+numbers:
+  - 1
+  - 2
+  - 3
+  - 4
+
+mix:
+  - a
+  - 1
+
+
+# 字典，键值对之间用冒号和空格表示
+person:
+  name: weixiaoyu
+  age: 27
+  sex: woman
+  adress:
+    street: qilin  # 嵌套的
+    city: nanjing
+
