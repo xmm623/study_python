@@ -36,9 +36,9 @@ import pytest
 #     assert token.startswith("token_for_")
 
 # 举个例子
-@pytest.fixture(params=["mimi01","mimi02","mimi03"])
+@pytest.fixture(params=["mimi01","mimi02","mimi03"]) # 有几个params参数，fixture函数就会执行几次
 def chuandi(request):
-    return request.param # 传递给测试函数要用这个语句
+    return request.param # 传递给测试函数要用这个语句，是pytest的内置fixture
 
 def test_chuandi(chuandi): # 使用fixture的方法时，需要在测试函数中调用该fixture函数
     print(f"传输数据：{chuandi}")
