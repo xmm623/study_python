@@ -32,3 +32,9 @@ person:
     street: qilin  # 嵌套的
     city: nanjing
 
+age: 2
+is_animal: cat
+name: xiaomaomi
+skill:
+- eat
+- sleep
